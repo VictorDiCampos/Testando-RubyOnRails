@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Articles <%= link_to 'New Article', new_article_path, html_options = { class: "pull-right"} %></h1>
+<br><br>
+<% @articles.each do |article| %>
+  <div class="col-lg-4">
+    <img class="img-circle" src="http://lorempixel.com/140/140" alt="Generic placeholder image" width="140" height="140">
+    <h2><%= article.title %></h2>
+    <p><%= article.description %></p>
+    <p><%= link_to 'View details »', article, html_options = { class: "btn btn-default", role: "button" } %></p>
+    <p><%= link_to 'Edit', edit_article_path(article), html_options = { class: "btn btn-default", role: "button" } %></p>
+    <p><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+  </div>
+<% end %>
